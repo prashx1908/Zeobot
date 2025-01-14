@@ -74,10 +74,10 @@ Below is the home page of the chatbot application:
 
 Below is the Login page of the chatbot application:
 
-![Login Page UI](screenshots/homepage_ui.png)
+![Login Page UI](screenshots/login_ui.png)
 
 
-Examples of a chatbot query response:
+Example of a chatbot query response:
 
 ![Query Response](screenshots/query_response.png)
 
