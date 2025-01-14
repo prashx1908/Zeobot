@@ -163,7 +163,8 @@ def query():
 
 # Initialize
 if __name__ == '__main__':
-    # Get the PORT from the environment variable, defaulting to 5000
-    port = int(os.environ.get("PORT", 5000))
+    # Render assigns the port through the PORT environment variable
+    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if not set
     print(f"Starting Flask app on port {port}...")
-    app.run(host="0.0.0.0", port=port, debug=True) # 0.0.0.0 makes it accessible externally
+\
+    app.run(host="0.0.0.0", port=port, debug=True)
