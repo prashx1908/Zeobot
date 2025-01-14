@@ -6,8 +6,8 @@ Develop a chatbot capable of answering "how-to" questions related to four Custom
 ---
 ## Links
 
-- **Project Link**: [https://zeobot.onrender.com](#) 
-- **Live Demo**: [ZeoSheets Demo](#) 
+- **Project Link**: [Zeotap Bot Live Link](https://zeobot.onrender.com) 
+- **Live Demo**: [Zeotap bot Demo](https://youtu.be/MDDv2qgUEVs) 
 
 ---
 
