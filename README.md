@@ -1,4 +1,4 @@
-Assignment 2: Building a Support Agent Chatbot for CDP
+Support Agent Chatbot for CDP
 
 Objective
 
@@ -177,3 +177,4 @@ License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
+](https://github.com/prashx1908/zeosheets/tree/main?tab=readme-ov-file)
