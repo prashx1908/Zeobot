@@ -1,4 +1,4 @@
-# Assignment 2: Building a Support Agent Chatbot for CDP
+Support Agent Chatbot-ZeoTap BOT for CDP
 
 ## Objective:
 Develop a chatbot capable of answering "how-to" questions related to four Customer Data Platforms (CDPs): **Segment**, **mParticle**, **Lytics**, and **Zeotap**. The chatbot extracts relevant information from the official documentation of these platforms to provide users with step-by-step guidance.
