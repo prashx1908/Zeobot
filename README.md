@@ -1,180 +1,100 @@
-Support Agent Chatbot for CDP
+# Zeotap Bot
 
-Objective
+Zeotap Bot is a web-based chatbot designed to answer "how-to" questions related to Customer Data Platforms (CDPs), including Segment, mParticle, Lytics, and Zeotap. It extracts relevant information from official documentation to provide users with accurate and helpful responses.
 
-Develop a chatbot that can answer "how-to" questions related to four Customer Data Platforms (CDPs): Segment, mParticle, Lytics, and Zeotap. The chatbot should extract relevant information from the official documentation of these CDPs to guide users on performing tasks or achieving specific outcomes within each platform.
+---
 
-Live and Demo Links
+## 📚 Table of Contents
+- [Overview](#overview)
+- [Live Link](#live-link)
+- [Demo Video](#demo-video)
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Setup and Usage](#setup-and-usage)
+- [Code Explanation](#code-explanation)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-Live Link: [Insert Live Link Here]
+---
 
-Demo Link: [Insert Demo Link Here]
+## 📖 Overview
+The **Zeotap Bot** aims to simplify interactions with CDP documentation by using natural language processing to fetch and present concise answers to user queries. The bot supports features like handling complex queries, extracting documentation data, and cross-CDP comparisons.
 
-Core Functionalities
+---
 
-1. Answer "How-to" Questions
+## 🌐 Live Link
+[**Live Demo**](#)
 
-The chatbot responds to user questions about specific tasks or features within each CDP.
+---
 
-Example Questions:
+## 🎥 Demo Video
+[**Watch the Demo**](#)
 
-"How do I set up a new source in Segment?"
+---
 
-"How can I create a user profile in mParticle?"
+## 📸 Screenshots
+![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 2](screenshots/screenshot2.png)
 
-"How do I build an audience segment in Lytics?"
+---
 
-"How can I integrate my data with Zeotap?"
+## 🌟 Features
 
-2. Extract Information from Documentation
+### 🤖 Core Functionalities:
+1. **Answer "How-to" Questions**:
+   - Guides users on performing specific tasks within Segment, mParticle, Lytics, and Zeotap.
+   - Example: "How do I set up a new source in Segment?"
 
-Retrieves relevant information from the official documentation to answer user questions.
+2. **Extract Information from Documentation**:
+   - Retrieves instructions or steps from official CDP documentation.
 
-Navigates through the documentation, identifies relevant sections, and extracts instructions or steps.
+3. **Handle Variations in Questions**:
+   - Processes complex or lengthy queries without breaking.
 
-3. Handle Variations in Questions
+4. **Respond to Irrelevant Questions**:
+   - Gracefully responds to questions outside the scope of CDPs.
 
-Handles size variations, such as extremely long questions.
+### 🎁 Bonus Features:
+1. **Cross-CDP Comparisons**:
+   - Explains differences between functionalities across multiple CDPs.
+   - Example: "How does Segment's audience creation compare to Lytics'?"
 
-Responds appropriately to questions irrelevant to CDPs, such as "Which movie is getting released this week?"
+2. **Advanced "How-to" Questions**:
+   - Handles platform-specific configurations and advanced integrations.
 
-Bonus Features
+---
 
-1. Cross-CDP Comparisons
+## 🚀 Setup and Usage
 
-Answers questions about differences in approaches or functionalities between the four CDPs.
+### Prerequisites
+- Python 3.9 or above
+- Dependencies from `requirements.txt`
 
-Example Question: "How does Segment's audience creation process compare to Lytics'?"
+### Steps to Run
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/zeotap-bot.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd zeotap-bot
+    ```
+3. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. Start the Flask server:
+    ```bash
+    python app.py
+    ```
+5. Open your browser and go to:
+    ```bash
+    http://localhost:5000
+    ```
 
-2. Advanced "How-to" Questions
+---
 
-Handles complex or platform-specific "how-to" questions.
-
-Provides guidance on advanced configurations, integrations, or use cases.
-
-Evaluation Criteria
-
-Accuracy and Completeness: Properly answers "how-to" questions.
-
-Code Quality: Clean and maintainable codebase.
-
-Handling Variations: Ability to manage different question phrasing and irrelevant queries.
-
-Bonus Features: Implementation of cross-CDP comparisons and advanced questions.
-
-User Experience: Smooth and intuitive chatbot interaction.
-
-Data Sources
-
-Segment Documentation
-
-mParticle Documentation
-
-Lytics Documentation
-
-Zeotap Documentation
-
-How It Works
-
-Web Scraping
-
-Extracts data from the official documentation of each CDP.
-
-Uses BeautifulSoup for parsing HTML and extracting relevant content.
-
-Limits scraping depth to navigate only relevant sections.
-
-Semantic Search
-
-Implements SentenceTransformer (all-MiniLM-L6-v2) for semantic similarity.
-
-Encodes user queries and documentation content.
-
-Computes cosine similarity to find the most relevant content.
-
-Flask Application
-
-Login and Signup Pages: Basic user authentication for demo purposes.
-
-Homepage: Provides a user-friendly interface for interacting with the chatbot.
-
-API for Querying: Accepts user queries, processes them, and returns answers.
-
-Setup Instructions
-
-Prerequisites
-
-Python 3.8+
-
-Required libraries (install using pip):
-
-Flask
-
-requests
-
-BeautifulSoup4
-
-sentence-transformers
-
-pytorch
-
-Installation
-
-Clone the repository:
-
-git clone [Repository URL]
-cd [Repository Folder]
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run the Flask app:
-
-python app.py
-
-Access the application at http://127.0.0.1:5000.
-
-File Structure
-
-app.py: Main application file.
-
-templates/: HTML templates for the application.
-
-index.html: Homepage template.
-
-login.html: Login page template.
-
-documentation.json: Pre-scraped documentation data.
-
-Screenshots
-
-Include screenshots of the following:
-
-Homepage.
-
-Chatbot interface.
-
-Query results.
-
-Login and signup pages.
-
-Future Improvements
-
-Enhanced Error Handling: Improve responses for edge cases and erroneous inputs.
-
-Real-Time Updates: Periodic re-scraping of documentation for up-to-date answers.
-
-Multi-language Support: Expand to handle queries in multiple languages.
-
-Credits
-
-Frameworks and Tools: Flask, BeautifulSoup, SentenceTransformer.
-
-Documentation: Official sources for Segment, mParticle, Lytics, and Zeotap.
-
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-](https://github.com/prashx1908/zeosheets/tree/main?tab=readme-ov-file)
+## 🛠 Code Explanation
+- **Web Scraping**: Retrieves data from official CDP documentation using BeautifulSoup.
+- *
