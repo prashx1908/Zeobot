@@ -1,10 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEOTAP AI BOT</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-$END$
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo1.png') }}" alt="Zeotap Logo" class="logo-image">
+            <span class="logo-text">ZEOTAP</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="https://zeotap.com/">About</a>
+            <a href="/">Chat</a>
+            <div class="buttons">
+                <a href="/login" class="btn btn-login">Log In</a>
+            <a href="/login" class="btn btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1 class="hero-title">ZEOTAP AI BOT</h1>
+                <h2 class="hero-subtitle">CUSTOMER DATA PLATFORM BOT</h2>
+                <p class="hero-description">
+                    Streamline your operations with tailored advice from Zeotap bot designed for your queries.
+                </p>
+                <button class="get-started">GET STARTED</button>
+            </div>
+            <div class="hero-image-container">
+                <img src="{{ url_for('static', filename='logo1.png') }}" alt="AI Robot" class="robot-image">
+            </div>
+        </section>
+
+
+        <!-- Chat Section -->
+        <section class="chat-section">
+
+            <div class="chat-container">
+                 <br>
+        <br>
+        <h2><Center>ZEOTAP CHATBOT</center></h2>
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Message Chatbot...">
+                    <button id="send-button" class="send-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const sendButton = document.getElementById('send-button');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        async function handleQuery(query) {
+            chatMessages.innerHTML += `
+                <div class="message message-question">
+                    <div class="user-icon">👤</div>
+                    <div class="message-content">${query}</div>
+                </div>
+            `;
+
+            chatMessages.innerHTML += `
+                <div class="message message-answer" id="loading-message">
+                    <div class="bot-icon">🤖</div>
+                    <div class="loading-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            `;
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                const response = await fetch('/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query: query })
+                });
+
+                const data = await response.json();
+
+                const loadingMessage = document.getElementById('loading-message');
+                if (loadingMessage) {
+                    loadingMessage.remove();
+                }
+
+                chatMessages.innerHTML += `
+                    <div class="message message-answer">
+                        <div class="bot-icon">🤖</div>
+                        <div class="message-content">
+                            ${data.error ? 'Sorry, no results found. Please try a different query.' : data.content}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Error:", error);
+                const loadingMessage = document.getElementById('loading-message');
+                if (loadingMessage) {
+                    loadingMessage.remove();
+                }
+
+                chatMessages.innerHTML += `
+                    <div class="message message-answer">
+                        <div class="bot-icon">🤖</div>
+                        <div class="message-content">
+                            An error occurred while fetching results. Please try again.
+                        </div>
+                    </div>
+                `;
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const query = chatInput.value.trim();
+            if (!query) return;
+            handleQuery(query);
+            chatInput.value = '';
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = chatInput.value.trim();
+                if (!query) return;
+                handleQuery(query);
+                chatInput.value = '';
+            }
+        });
+    </script>
 </body>
 </html>

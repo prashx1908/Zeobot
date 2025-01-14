@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEOTAP AI BOT</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo1.png') }}" alt="Zeotap Logo" class="logo-image">
+            <span class="logo-text">ZEOTAP</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Chat</a>
+            <div class="buttons">
+                <a href="/login" class="btn btn-login">Log In</a>
+                <a href="/signup" class="btn btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <h2 class="auth-title">Login or Signup</h2>
+            <p class="auth-description">Please login or create an account to continue.</p>
+        </div>
+
+        <!-- Login or Signup form -->
+        <div class="auth-form">
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form-content" style="display: block;">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="Password" required>
+                </div>
+                <button type="submit" class="auth-button">Login</button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form-content" style="display: none;">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <button type="submit" class="auth-button">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Switch to login or signup -->
+        <div class="auth-switch">
+            <span id="switch-to-login" class="auth-switch-link" onclick="toggleForms()">Already have an account? Login</span>
+            <span id="switch-to-signup" class="auth-switch-link" style="display: none;" onclick="toggleForms()">Don't have an account? Sign Up</span>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to switch between login and signup forms
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const switchToLogin = document.getElementById('switch-to-login');
+            const switchToSignup = document.getElementById('switch-to-signup');
+
+            // Toggle visibility of forms
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                switchToLogin.style.display = 'none';
+                switchToSignup.style.display = 'block';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                switchToLogin.style.display = 'block';
+                switchToSignup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
